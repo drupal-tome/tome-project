@@ -26,16 +26,13 @@
         "drupal/tome": "1.x-dev"
     },
     "scripts": {
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "install-tome": "./scripts/install.sh",
         "run": "./scripts/run.sh",
         "symlink": "./scripts/symlink.sh",
         "post-install-cmd": [
-            "@drupal-scaffold",
             "@symlink"
         ],
         "post-update-cmd": [
-            "@drupal-scaffold",
             "@symlink"
         ]
     },
