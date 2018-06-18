@@ -27,7 +27,6 @@
     },
     "scripts": {
         "install-tome": "./scripts/install.sh",
-        "run": "./scripts/run.sh",
         "symlink": "./scripts/symlink.sh",
         "post-install-cmd": [
             "@symlink"

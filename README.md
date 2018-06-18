@@ -22,5 +22,5 @@ composer install-tome
 To start a local webserver, run:
 
 ```
-composer run
+drush runserver
 ```
