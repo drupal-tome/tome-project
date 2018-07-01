@@ -29,9 +29,11 @@
         "install-tome": "./scripts/install.sh",
         "symlink": "./scripts/symlink.sh",
         "post-install-cmd": [
+            "composer drupal:scaffold",
             "@symlink"
         ],
         "post-update-cmd": [
+            "composer drupal:scaffold",
             "@symlink"
         ]
     },
