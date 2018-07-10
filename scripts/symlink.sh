@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [ ! -L web/sites/default/settings.php ] && [ ! -e web/sites/default/settings.php ]; then
     ln -s ../../../settings.php web/sites/default/settings.php
 fi

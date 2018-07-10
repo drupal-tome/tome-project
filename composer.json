@@ -23,17 +23,17 @@
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/core": "~8.5.3",
         "drush/drush": "^9.0.0",
-        "drupal/tome": "1.x-dev"
+        "drupal/tome": "1.x-dev",
+        "drupal-tome/tome_drush": "dev-master"
     },
     "scripts": {
-        "install-tome": "./scripts/install.sh",
         "symlink": "./scripts/symlink.sh",
         "post-install-cmd": [
-            "composer drupal:scaffold",
+            "@composer drupal:scaffold",
             "@symlink"
         ],
         "post-update-cmd": [
-            "composer drupal:scaffold",
+            "@composer drupal:scaffold",
             "@symlink"
         ]
     },
@@ -48,7 +48,8 @@
             "web/libraries/{$name}": ["type:drupal-library"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"]
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/{$name}": ["type:drupal-drush"]
         }
     }
 }
