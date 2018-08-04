@@ -5,6 +5,13 @@ This project is a great place to start for building brand new Tome projects.
 There isn't much here now, but keep posted and let me know if anything doesn't
 work!
 
+# Requirements
+
+- PHP 7+
+- [Composer](https://getcomposer.org/)
+- [Drush](https://github.com/drush-ops/drush-launcher#installation---phar)
+- SQLite and the related PHP extensions
+
 ## Usage
 
 To create a new Tome project, run:
