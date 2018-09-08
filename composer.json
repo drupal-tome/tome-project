@@ -21,7 +21,7 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.5",
-        "drupal/core": "~8.5",
+        "drupal/core": "~8.6",
         "drush/drush": "^9.0.0",
         "drupal/tome": "1.x-dev",
         "drupal-tome/tome_drush": "dev-master"
@@ -45,11 +45,6 @@
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/{$name}": ["type:drupal-drush"]
-        },
-        "patches": {
-            "drupal/core": {
-                "Alt text lost when normalizing": "https://www.drupal.org/files/issues/2018-06-05/2935738-14.patch"
-            }
         }
     }
 }
