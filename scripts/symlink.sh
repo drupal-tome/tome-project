@@ -11,3 +11,6 @@ fi
 if [ ! -L web/modules/custom ] && [ ! -e web/modules/custom ]; then
     ln -s ../../modules web/modules/custom
 fi
+if [ ! -L web/libraries ] && [ ! -e web/libraries ]; then
+    ln -s ../libraries web/libraries
+fi
