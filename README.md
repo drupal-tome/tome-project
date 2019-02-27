@@ -28,7 +28,8 @@ composer update
 
 Create new SQL database `testdb`, with its own separate user `tome` that has all privileges for that database and only for that database, with a password `mypassword`:
 
-```sudo mysql
+```bash
+sudo mysql
 MariaDB> create database testdb;
 MariaDB> CREATE USER 'tome'@'localhost' IDENTIFIED BY 'mypassword';
 MariaDB> grant all privileges on testdb.* to 'tome'@'localhost';
@@ -37,12 +38,14 @@ MariaDB> \q
 
 Run the normal `site:init` first to set up the database connection (`tome:init` fails to do that). Use the details (database name, user name, password) from the previous step, and accept defaults for all the other values:
 
-```drush site:init
+```bash
+drush site:init
 ```
 
 To finish the installation, run the `tome:init`, accept all defaults:
 
-```drush tome:init
+```bash
+drush tome:init
 ```
 
 To re-install Tome, run:
