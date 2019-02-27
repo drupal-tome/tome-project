@@ -12,9 +12,7 @@ work!
 - [Drush](https://github.com/drush-ops/drush-launcher#installation---phar)
 - SQLite and the related PHP extensions
 
-## Usage
-
-### Initializing a new project
+## Initializing a new project
 
 To create a new Tome project in the `my_site` subdirectory, run:
 
@@ -42,11 +40,13 @@ Run the normal `site:init` first to set up the database connection (`tome:init` 
 drush site:init
 ```
 
-To finish the installation, run the `tome:init`, accept all defaults:
+To finish the installation, run `tome:init`, accept all defaults:
 
 ```bash
 drush tome:init
 ```
+
+## Further usage
 
 To re-install Tome, run:
 
