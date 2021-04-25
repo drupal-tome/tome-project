@@ -18,22 +18,21 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6",
-        "drupal-composer/drupal-scaffold": "^2.5",
-        "drupal/core": "~8.6",
-        "drush/drush": "^9.0.0",
+        "composer/installers": "^1.9",
+        "drupal/core-composer-scaffold": "^9.1",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/core": "^9",
+        "drush/drush": "^10.3",
         "drupal/tome": "^1.0",
-        "drupal-tome/tome_drush": "dev-master"
+        "drupal-tome/tome_drush": "dev-master",
+        "webflo/drupal-finder": "^1.2"
     },
     "scripts": {
         "symlink": "./scripts/symlink.sh",
         "post-install-cmd": [
-            "@composer drupal:scaffold",
             "@symlink"
         ],
         "post-update-cmd": [
-            "@composer drupal:scaffold",
             "@symlink"
         ]
     },
@@ -45,6 +44,11 @@
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/{$name}": ["type:drupal-drush"]
+        },
+        "drupal-scaffold": {
+          "locations": {
+              "web-root": "web/"
+          }
         }
     }
 }
