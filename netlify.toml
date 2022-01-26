@@ -1,0 +1,15 @@
+[build]
+command = """
+composer install \
+&& ./vendor/bin/drush tome:install -y \
+&& ./vendor/bin/drush tome:static -l $DEPLOY_PRIME_URL
+"""
+
+# Example lines you can add before "tome:static" above if needed:
+#&& LUNR_DRUSH=./vendor/bin/drush node web/modules/contrib/lunr/js/index.node.js default \
+#&& ./vendor/bin/drush simple-sitemap-generate -y -l $DEPLOY_PRIME_URL \
+
+publish = "html"
+
+[build.environment]
+PHP_VERSION="7.4"

@@ -54,6 +54,19 @@ welcome to make this functionality cross-platform by default.
 A Docker image for Tome is available on Docker Hub as `mortenson/tome`.
 Instructions on how to use the image can be found at [drupal-tome/tome-docker].
 
+## Included Netlify, GitPod, and GitHub Pages configuration
+
+For ease of use, `netlify.toml` and `.gitpod.yml` files have been included so
+that you can start using these services as soon as you create a project.
+Netlify provides free static site hosting and supports Tome, and Gitpod allows
+you to edit Drupal content, config, and code without running a local site. For
+more information, visit https://netlify.com/ and https://gitpod.io/.
+
+For GitHub Pages, you'll need to copy .example_github to .github and enable
+GitHub actions. Then, on commit to `master`, a static site should be exported
+to the `gh-pages` branch. You can configure what branch to use for GitHub pages
+in the repository settings.
+
 ## Further reading
 
 This project is largely based on [drupal-composer/drupal-project], so it's
