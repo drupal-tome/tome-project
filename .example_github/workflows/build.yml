@@ -1,0 +1,43 @@
+name: Build and deploy site
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: mortenson/tome
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Node
+      run: |
+        apt-get --allow-releaseinfo-change update
+        curl -sL https://deb.nodesource.com/setup_10.x | bash -
+        apt-get install -y nodejs
+        nodejs -v
+    - name: Install dependencies
+      run: composer install
+    - name: Install Tome
+      run: ./vendor/bin/drush tome:install -y
+    # Uncomment these lines if needed:
+    # - name: Generate sitemap
+    #   run: ./vendor/bin/drush simple-sitemap-generate -y -l "<your url here>"
+    # - name: Build search index
+    #   run: LUNR_DRUSH=./vendor/bin/drush nodejs web/modules/contrib/lunr/js/index.node.js default
+    - name: Build static site
+      run: ./vendor/bin/drush tome:static -l "<your url here>"
+    # If you're pointing a custom domain to GitHub Pages, you probably need a CNAME file:
+    # - name: Copy CNAME
+    #   run: cp CNAME ./html/
+    # GitHub pages also requires the 404 page to be in a particular path, uncomment if needed:
+    # - name: Copy 404 page
+    #   run: cp ./html/404/index.html ./html/404.html
+    - name: Deploy to GitHub pages
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PUBLISH_BRANCH: gh-pages-build
+        PUBLISH_DIR: ./html
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        emptyCommits: false

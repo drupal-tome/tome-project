@@ -1,0 +1,11 @@
+image: mortenson/tome
+tasks:
+  - init: |
+      composer install
+      [ -d content ] && drush tome:install -y
+    command: |
+      [ -d content ] && drush uli -l $(gp url 8888)
+      drush runserver 0.0.0.0:8888
+ports:
+  - port: 8888
+    onOpen: ignore
