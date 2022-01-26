@@ -10,7 +10,7 @@ work!
 - PHP 7+
 - [Composer](https://getcomposer.org/)
 - [Drush](https://github.com/drush-ops/drush-launcher#installation---phar)
-- SQLite and the related PHP extensions
+- SQLite 3.26+ and the related PHP extensions
 
 ## Usage
 
