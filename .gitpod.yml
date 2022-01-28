@@ -1,7 +1,7 @@
 image: mortenson/tome
 tasks:
   - init: |
-      composer install
+      COMPOSER_MEMORY_LIMIT=2048M composer install
       [ -d content ] && drush tome:install -y
     command: |
       [ -d content ] && drush uli -l $(gp url 8888)
