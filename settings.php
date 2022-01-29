@@ -793,3 +793,15 @@ $databases['default']['default'] = array (
 );
 
 $settings['config_sync_directory'] = '../config';
+
+/**
+ * Instead of having a "local" settings.php, it may make sense for you to
+ * always assume that web requests are local development and the CLI
+ * (ex: drush tome:static) is "production". For example, this code will always
+ * turn CSS/JS preprocessing off for web requests, which saves you from editing
+ * the "Performance" page every time you work on your theme.
+ */
+// if (PHP_SAPI !== 'cli') {
+//   $config['system.performance']['css']['preprocess'] = FALSE;
+//   $config['system.performance']['js']['preprocess'] = FALSE;
+// }
