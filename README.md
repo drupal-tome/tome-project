@@ -12,6 +12,9 @@ work!
 - [Drush](https://github.com/drush-ops/drush-launcher#installation---phar)
 - SQLite 3.26+ and the related PHP extensions
 
+You can also run Tome inside a Docker container - see the Docker documentation
+below for reference.
+
 ## Usage
 
 To create a new Tome project, run:
@@ -52,7 +55,17 @@ welcome to make this functionality cross-platform by default.
 ## Docker
 
 A Docker image for Tome is available on Docker Hub as `mortenson/tome`.
-Instructions on how to use the image can be found at [drupal-tome/tome-docker].
+
+You can use the image instead of local versions of Drush and Composer by
+using these included scripts:
+
+- `./scripts/ddrush.sh` - Runs Drush in the current directory.
+- `./scripts/drunserver.sh` - Runs `drush runserver` and maps port 8888.
+- `./scripts/dexec.sh` - Runs a shell command, use `./scripts/dexec.sh bash` to
+open an interactive session.
+
+More instructions on how to use the image can be found at
+[drupal-tome/tome-docker].
 
 ## Included Netlify, GitPod, and GitHub Pages configuration
 
