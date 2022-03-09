@@ -1,6 +1,7 @@
 image: mortenson/tome
 tasks:
   - init: |
+      eval $(gp env -e DRUSH_OPTIONS_URI="0.0.0.0:8888")
       COMPOSER_MEMORY_LIMIT=2048M composer install
       [ -d content ] && drush tome:install -y
     command: |
@@ -9,4 +10,6 @@ tasks:
       [ -d content ] && drush runserver 0.0.0.0:8888
 ports:
   - port: 8888
+    onOpen: ignore
+  - port: 8889
     onOpen: ignore
