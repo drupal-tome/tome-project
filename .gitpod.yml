@@ -1,13 +1,26 @@
 image: mortenson/tome
 tasks:
-  - init: |
-      eval $(gp env -e DRUSH_OPTIONS_URI="0.0.0.0:8888")
+  - name: Install tome
+    command: |
       COMPOSER_MEMORY_LIMIT=2048M composer install
       [ -d content ] && drush tome:install -y
+      gp sync-done install
+  - name: Init and login
+    init: |
+      echo "Waiting for install..."
+      gp sync-await install
     command: |
-      [ ! -d content ] && echo "Looks like you haven't initialized a Tome site yet - make sure to composer require any profiles you want to use, then run drush tome:init to get started!"
-      [ -d content ] && drush uli -l $(gp url 8888)
+      eval $(gp env -e DRUSH_OPTIONS_URI="0.0.0.0:8888")
+      [ ! -d content ] && echo "Looks like you haven't initialized a Tome site yet - make sure to composer require any profiles you want to use (ex: 'composer require drupal-tome/bookish'), then run drush tome:init to get started!"
+      [ -d content ] && drush uli
+  - name: Runserver
+    init: |
+      echo "Waiting for install..."
+      gp sync-await install
+    command: |
+      [ ! -d content ] && echo "When you're finished running drush tome:init you can use this tab to run your server with 'drush runserver 0.0.0.0:8888'"
       [ -d content ] && drush runserver 0.0.0.0:8888
+    openMode: split-right
 ports:
   - port: 8888
     onOpen: ignore
