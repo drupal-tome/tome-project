@@ -22,6 +22,6 @@ tasks:
     openMode: split-right
 ports:
   - port: 8888
-    onOpen: preview
+    onOpen: open-preview
   - port: 8889
     onOpen: ignore
